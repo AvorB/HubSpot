@@ -1,0 +1,45 @@
+{# CUSTOM FONTS #}
+{# link to all possible font-face embed types: https://css-tricks.com/snippets/css/using-font-face-in-css/#aa-deepest-possible-browser-support #}
+
+@font-face {
+	font-family: 'RobotoRegular';
+	src:   url('https://5024985.fs1.hubspotusercontent-na1.net/hubfs/5024985/my-custom-font/Roboto-Regular.ttf') format('truetype')
+}
+@font-face {
+	font-family: 'RobotoItalic'; 
+	src:   url('https://5024985.fs1.hubspotusercontent-na1.net/hubfs/5024985/my-custom-font/Roboto-Italic.ttf') format('truetype')
+}
+@font-face {
+	font-family: 'RobotoBold';
+	src:   url('https://5024985.fs1.hubspotusercontent-na1.net/hubfs/5024985/my-custom-font/Roboto-Bold.ttf') format('truetype')
+}
+
+{# optional but recommended - set the fonts and settings as variables. By doing so it will be easier to read, write and maintain future changes #}
+{% set bold_font = "'RobotoBold', sans-serif" %}
+{%- set bold_weight = "700" -%}
+
+{%- set regular_font = "'RobotoRegular', sans-serif" -%}
+{%- set regular_weight = "400" -%}
+
+{%- set italic_font = "'RobotoItalic', sans-serif" -%}
+{%- set italic_weight = "400" -%}
+{%- set italic_style = "italic" -%}
+
+{# implement the variables in your CSS #}
+body{
+	font-family:{{ regular_font }};
+	font-weight:{{ regular_weight }}
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family:{{ bold_font }};
+	font-weight:{{ bold_weight }}
+}
+
+a, 
+em, 
+i{
+	font-family: {{ italic_font }};
+	font-weight: {{ italic_weight }};
+	font-style: {{ italic_style }};
+}
