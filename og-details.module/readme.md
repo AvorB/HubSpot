@@ -1,10 +1,12 @@
 <h1>OG Details</h1>
 <p>This module will give you the ability to add/overwrite OG informations on pages, blog listing and blog posts.</p>
+<p>Since the module is written  completly on vanilla Hubl no further scripts or add-ons are required. This is done on purpose for best possible performance and compability</p>
 <h2>"Installation"</h2>
-<p>The module contains jQuery scripts which are automatically appended right before the <code></body></code>-tag. All the overwrites are then appended before the <code></head></code>-tag. So there shouldn't be performance issues.</p>
+<p><i><strong>I recommend</strong></i> to put it as high as possible in module order in your templates as possible for best user experience since if you put it as the first module in your template it will be the first when the user opens the "Content"-Tab in the page editor</p>
 <h3>Themes</h3>
 <p><strong>Adding this module globally into every Page</strong></p>
-<p>If you're working with themes - open the design-tools, find your theme, open the base.html, layout.html or similar and place the module snippet into it.</p>
+<p>If you're working with themes - open the design-tools, find your theme, open the base.html, layout.html or similar and place the module snippet into it.
+</p>
 <p>&nbsp;</p>
 <p><strong>In specific templates</strong></p>
 <p>Open your desired template.html in the design-tools and place the module snippet anywhere you like. </p>
@@ -18,9 +20,8 @@
 
 <h2>Options</h2>
 <ul>
-<li>Enable jQuery(boolean) - enable/disable the load of jQuery. Again <strong>only enable it if you don't load jQuery already in your theme/template/Hub</strong></li>
 <li>OG title(text) - set the title of your page/post. If empty it will be populated with your Page name</li>
-<li>OG description(text) - set the description of your page/post. If empty it will be populated with the Meta description. It's limited to 200 characters since it's the recommended limitation</li>
+<li>OG description(text) - set the description of your page/post. If empty it will be populated with the Meta description. It's limited to 200 characters</li>
 <li>OG site name(text) - set the name of your site. If empty it will be populated with your company name.</li>
 <li>OG image source(choice) - select if you want to use the featured image set in the settings of your page/post or a custom image</li>
 <li>OG image(image) - if you select the custom image option in "OG image source" you will have the option to upload/select a custom image for this page/post. <strong>No image will be set automatically</strong></li>
@@ -29,6 +30,22 @@
 <li>OG image width(text) - set the width of the image. Will be populated with the width of the custom image. <strong>Due to technical reasons the featured image option doesn't provide this option</strong></li>
 <li>OG image height(text) - set the height of the image. Will be populated with the height of the custom image. <strong>Due to technical reasons the featured image option doesn't provide this option</strong></li>
 <li>OG url(text) - set the url of your page/post. If empty it will be populated with the url of your page/post</li>
+<li>OG Type:
+Select what's the page about. You have all available Open graph options with all possible informations
+<ul>
+<li>Website (will be set by default)</li>
+<li>Article</li>
+<li>Book</li>
+<li>Music / Song</li>
+<li>Music / Album</li>
+<li>Music / Playlist</li>
+<li>Music / Radio station</li>
+<li>Video / Movie</li>
+<li>Video / TV show</li>
+<li>Video / Episode</li>
+<li>Video / Other</li>
+</ul>
+</li>
 </ul>
 
 <h2>Note for non developers</h2>
