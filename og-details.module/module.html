@@ -1,0 +1,412 @@
+{### Description ###} 
+
+{# 
+	Drop this module into your template after 'standard_header_includes'-hubl and you're ready to go. 
+	For more information about Open Graph properties visit: https://ogp.me/ 
+	
+	Also:
+	if you leave one of the core values like OG title, OG description ... empty, the module will take the default values from HubSpot. 
+	For more inforation about the used HubSpot variables visit https://developers.hubspot.com/docs/cms/hubl/variables 
+#} 
+
+{# start Open Graph Properties #} 
+{% require_head %} 
+	{# start og title overwrite #} 
+	{% unless module.og_title == "" %}
+		<meta property="og:title" content="{{ module.og_title }}" />
+	{% else %}
+		<meta property="og:title" content="{{ page_meta.html_title }}" />
+	{% endunless %}
+	{# end og title overwrite #}
+	{# start og description overwrite #}
+	{% unless module.og_description == "" %}
+		<meta property="og:description" content="{{ module.og_description|truncate(200,true, "...") }}" />
+	{% else %}
+		<meta property="og:description" content="{{ page_meta.meta_description|truncate(200,true, "...") }}" />
+	{% endunless %}
+	{# end og description overwrite #}
+	{# start og image overwrite #}
+	{% unless module.og_image_source == "featured_image" %}
+		<meta property="og:image" content="{{ resize_image_url( module.og_image.src , 0, 0, 1200) }}" />
+		<meta property="og:image:alt" content="{{ module.og_image.alt }}" />
+		<meta property="og:image:width" content="{{ module.og_image.width }}" />
+		<meta property="og:image:height" content="{{ module.og_image.height }}" />
+	{% else %}
+		<meta property="og:image" content="{{ content.featured_image }}" />
+		<meta property="og:image:alt" content="{{ content.featured_image_alt_text }}" />
+	{% endunless %}
+	{# end og image overwrite #}
+	{# start og url overwrite #}
+	{% unless module.og_url == "" %}
+		<meta property="og:url" content="{{ module.og_url }}" />
+	{% else %}
+		<meta property="og:url" content="{{ content.absolute_url }}" />
+	{% endunless %}
+	{# end og url overwrite #}
+	{# start og site name overwrite #}
+	{% unless module.og_site_name == "" %}
+		<meta property="og:site_name" content="{{ module.og_site_name }}" />
+	{% else %}
+		<meta property="og:site_name" content="{{ site_settings.company_name }}" />
+	{% endunless %}
+	{# end og site name overwrite #}
+	{# start og type overwrite #}
+	{% unless module.og_type == "" %}
+		<meta property="og:type" content="{{ module.og_type }}" />
+		{% if module.og_type == "music.song" %}
+			{% unless module.song_info.duration == "" %}
+				<meta property="og:music:duration" content="{{ module.song_info.duration }}s" />
+			{% endunless %}
+			{% unless module.song_info.album == "" %}
+				<meta property="og:music:album" content="{{ module.song_info.album }}" />
+			{% endunless %}
+			{% unless module.song_info.disc == "" %}
+				<meta property="og:music:disc" content="{{ module.song_info.disc }}" />
+			{% endunless %}
+			{% unless module.song_info.track_number == "" %}
+				<meta property="og:music:track_number" content="{{ module.song_info.track_number }}" />
+			{% endunless %}
+			{% unless module.song_info.musician.firstname == "" %}
+				<meta property="og:music:firstname" content="{{ module.song_info.musician.firstname }}" />
+			{% endunless %}
+			{% unless module.song_info.musician.lastname == "" %}
+				<meta property="og:music:lastname" content="{{ module.song_info.musician.lastname }}" />
+			{% endunless %}
+			{% unless module.song_info.musician.username == "" %}
+				<meta property="og:music:username" content="{{ module.song_info.musician.username }}" />
+			{% endunless %}
+			{% unless module.song_info.musician.gender == "" %}
+				<meta property="og:music:gender" content="{{ module.song_info.musician.gender }}" />
+			{% endunless %}
+		{% elif module.og_type == "music.album" %}
+			{% unless module.album_info.song == "" %}
+				<meta property="og:music:song" content="{{ module.album_info.song }}" />
+			{% endunless %}
+			{% unless module.album_info.disc == "" %}
+				<meta property="og:music:song:disc" content="{{ module.album_info.disc }}" />
+			{% endunless %}
+			{% unless module.album_info.track_number == "" %}
+				<meta property="og:music:song:track" content="{{ module.album_info.track_number }}" />
+			{% endunless %}
+			{% unless module.album_info.musician.firstname == "" %}
+				<meta property="og:music:musician:firstname" content="{{ module.album_info.musician.firstname }}" />
+			{% endunless %}
+			{% unless module.album_info.musician.lastname == "" %}
+				<meta property="og:music:musician:lastname" content="{{ module.album_info.musician.lastname }}" />
+			{% endunless %}
+			{% unless module.album_info.musician.username == "" %}
+				<meta property="og:music:musician:username" content="{{ module.album_info.musician.username }}" />
+			{% endunless %}
+			{% unless module.album_info.musician.gender == "" %}
+				<meta property="og:music:musician:gender" content="{{ module.album_info.musician.gender }}" />
+			{% endunless %}
+			{% unless module.album_info.date == "" %}
+				<meta property="og:music:release_date" content="{{ module.album_info.date|format_date('YYYY-MM-DD') }}" />
+			{% endunless %}
+		{% elif module.og_type == "music.playlist" %}
+			{% unless module.playlist_info.song == "" %}
+				<meta property="og:music:song" content="{{ module.playlist_info.song }}" />
+			{% endunless %}
+			{% unless module.playlist_info.disc == "" %}
+				<meta property="og:music:song:disc" content="{{ module.playlist_info.disc }}" />
+			{% endunless %}
+			{% unless module.playlist_info.track_number == "" %}
+				<meta property="og:music:song:track" content="{{ module.playlist_info.track_number }}" />
+			{% endunless %}
+			{% unless module.playlist_info.creator.firstname == "" %}
+				<meta property="og:music:creator:firstname" content="{{ module.playlist_info.creator.firstname }}" />
+			{% endunless %}
+			{% unless module.playlist_info.creator.lastname == "" %}
+				<meta property="og:music:creator:lastname" content="{{ module.playlist_info.creator.lastname }}" />
+			{% endunless %}
+			{% unless module.playlist_info.creator.username == "" %}
+				<meta property="og:music:creator:username" content="{{ module.playlist_info.creator.username }}" />
+			{% endunless %}
+			{% unless module.playlist_info.creator.gender == "" %}
+				<meta property="og:music:creator:gender" content="{{ module.playlist_info.creator.gender }}" />
+			{% endunless %}
+		{% elif module.og_type == "music.radio_station" %}
+			{% unless module.radio_station.creator.firstname == "" %}
+				<meta property="og:music:creator:firstname" content="{{ module.radio_station.creator.firstname }}" />
+			{% endunless %}
+			{% unless module.radio_station.creator.lastname == "" %}
+				<meta property="og:music:creator:lastname" content="{{ module.radio_station.creator.lastname }}" />
+			{% endunless %}
+			{% unless module.radio_station.creator.station_name == "" %}
+				<meta property="og:music:creator:radio" content="{{ module.radio_station.creator.station_name }}" />
+			{% endunless %}
+			{% unless module.radio_station.creator.gender == "" %}
+				<meta property="og:music:creator:gender" content="{{ module.radio_station.creator.gender }}" />
+			{% endunless %}
+		{% elif module.og_type == "video.movie" %}
+			{% for actor in module.movie_info.actors %}
+				{% unless actor.firstname == "" %}
+					<meta property="og:video:actor:firstname" content="{{ actor.firstname }}" />
+				{% endunless %}
+				{% unless actor.lastname == "" %}
+					<meta property="og:video:actor:lastname" content="{{ actor.lastname }}" />
+				{% endunless %}
+				{% unless actor.role == "" %}
+					<meta property="og:video:actor:role" content="{{ actor.role }}" />
+				{% endunless %}
+				{% unless actor.gender == "" %}
+					<meta property="og:video:actor:gender" content="{{ actor.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for director in module.movie_info.directors %}
+				{% unless director.firstname == "" %}
+					<meta property="og:video:director:firstname" content="{{ director.firstname }}" />
+				{% endunless %}
+				{% unless director.lastname == "" %}
+					<meta property="og:video:director:lastname" content="{{ director.lastname }}" />
+				{% endunless %}	
+				{% unless director.gender == "" %}
+					<meta property="og:video:director:gender" content="{{ director.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for writer in module.movie_info.writers %}
+				{% unless writer.firstname == "" %}
+					<meta property="og:video:writer:firstname" content="{{ writer.firstname }}" />
+				{% endunless %}
+				{% unless writer.lastname == "" %}
+					<meta property="og:video:writer:lastname" content="{{ writer.lastname }}" />
+				{% endunless %}	
+				{% unless writer.gender == "" %}
+					<meta property="og:video:writer:gender" content="{{ writer.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% unless module.movie_info.duration == "" %}
+				<meta property="og:video:duration" content="{{ module.movie_info.duration }}s" />
+			{% endunless %}
+			{% unless module.movie_info.date == "" %}
+				<meta property="og:music:release_date" content="{{ module.movie_info.date|format_date('YYYY-MM-DD') }}" />
+			{% endunless %}
+			{% unless module.movie_info.tags is null %}
+				<meta property="og:video:tag" content="{% for single_tag in module.movie_info.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
+			{% endunless %}
+		{% elif module.og_type == "video.tv_show"%}
+			{% for actor in module.tv_info.actors %}
+				{% unless actor.firstname == "" %}
+					<meta property="og:video:actor:firstname" content="{{ actor.firstname }}" />
+				{% endunless %}
+				{% unless actor.lastname == "" %}
+					<meta property="og:video:actor:lastname" content="{{ actor.lastname }}" />
+				{% endunless %}
+				{% unless actor.role == "" %}
+					<meta property="og:video:actor:role" content="{{ actor.role }}" />
+				{% endunless %}
+				{% unless actor.gender == "" %}
+					<meta property="og:video:actor:gender" content="{{ actor.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for director in module.tv_info.directors %}
+				{% unless director.firstname == "" %}
+					<meta property="og:video:director:firstname" content="{{ director.firstname }}" />
+				{% endunless %}
+				{% unless director.lastname == "" %}
+					<meta property="og:video:director:lastname" content="{{ director.lastname }}" />
+				{% endunless %}	
+				{% unless director.gender == "" %}
+					<meta property="og:video:director:gender" content="{{ director.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for writer in module.tv_info.writers %}
+				{% unless writer.firstname == "" %}
+					<meta property="og:video:writer:firstname" content="{{ writer.firstname }}" />
+				{% endunless %}
+				{% unless writer.lastname == "" %}
+					<meta property="og:video:writer:lastname" content="{{ writer.lastname }}" />
+				{% endunless %}	
+				{% unless writer.gender == "" %}
+					<meta property="og:video:writer:gender" content="{{ writer.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% unless module.tv_info.duration == "" %}
+				<meta property="og:video:duration" content="{{ module.tv_info.duration }}s" />
+			{% endunless %}
+			{% unless module.tv_info.date == "" %}
+				<meta property="og:music:release_date" content="{{ module.tv_info.date|format_date('YYYY-MM-DD') }}" />
+			{% endunless %}
+			{% unless module.tv_info.tags is null %}
+				<meta property="og:video:tag" content="{% for single_tag in module.tv_info.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
+			{% endunless %}
+		{% elif module.og_type == "video.other" %}
+			{% for actor in module.video_other.actors %}
+				{% unless actor.firstname == "" %}
+					<meta property="og:video:actor:firstname" content="{{ actor.firstname }}" />
+				{% endunless %}
+				{% unless actor.lastname == "" %}
+					<meta property="og:video:actor:lastname" content="{{ actor.lastname }}" />
+				{% endunless %}
+				{% unless actor.role == "" %}
+					<meta property="og:video:actor:role" content="{{ actor.role }}" />
+				{% endunless %}
+				{% unless actor.gender == "" %}
+					<meta property="og:video:actor:gender" content="{{ actor.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for director in module.video_other.directors %}
+				{% unless director.firstname == "" %}
+					<meta property="og:video:director:firstname" content="{{ director.firstname }}" />
+				{% endunless %}
+				{% unless director.lastname == "" %}
+					<meta property="og:video:director:lastname" content="{{ director.lastname }}" />
+				{% endunless %}	
+				{% unless director.gender == "" %}
+					<meta property="og:video:director:gender" content="{{ director.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for writer in module.video_other.writers %}
+				{% unless writer.firstname == "" %}
+					<meta property="og:video:writer:firstname" content="{{ writer.firstname }}" />
+				{% endunless %}
+				{% unless writer.lastname == "" %}
+					<meta property="og:video:writer:lastname" content="{{ writer.lastname }}" />
+				{% endunless %}	
+				{% unless writer.gender == "" %}
+					<meta property="og:video:writer:gender" content="{{ writer.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% unless module.video_other.duration == "" %}
+				<meta property="og:video:duration" content="{{ module.video_other.duration }}s" />
+			{% endunless %}
+			{% unless module.video_other.date == "" %}
+				<meta property="og:music:release_date" content="{{ module.video_other.date|format_date('YYYY-MM-DD') }}" />
+			{% endunless %}
+			{% unless module.video_other.tags is null %}
+				<meta property="og:video:tag" content="{% for single_tag in module.video_other.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
+			{% endunless %}
+		{% elif module.og_type == "video.tv_show"%}
+			{% for actor in module.tv_info.actors %}
+				{% unless actor.firstname == "" %}
+					<meta property="og:video:actor:firstname" content="{{ actor.firstname }}" />
+				{% endunless %}
+				{% unless actor.lastname == "" %}
+					<meta property="og:video:actor:lastname" content="{{ actor.lastname }}" />
+				{% endunless %}
+				{% unless actor.role == "" %}
+					<meta property="og:video:actor:role" content="{{ actor.role }}" />
+				{% endunless %}
+				{% unless actor.gender == "" %}
+					<meta property="og:video:actor:gender" content="{{ actor.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for director in module.tv_info.directors %}
+				{% unless director.firstname == "" %}
+					<meta property="og:video:director:firstname" content="{{ director.firstname }}" />
+				{% endunless %}
+				{% unless director.lastname == "" %}
+					<meta property="og:video:director:lastname" content="{{ director.lastname }}" />
+				{% endunless %}	
+				{% unless director.gender == "" %}
+					<meta property="og:video:director:gender" content="{{ director.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for writer in module.tv_info.writers %}
+				{% unless writer.firstname == "" %}
+					<meta property="og:video:writer:firstname" content="{{ writer.firstname }}" />
+				{% endunless %}
+				{% unless writer.lastname == "" %}
+					<meta property="og:video:writer:lastname" content="{{ writer.lastname }}" />
+				{% endunless %}	
+				{% unless writer.gender == "" %}
+					<meta property="og:video:writer:gender" content="{{ writer.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% unless module.tv_info.duration == "" %}
+				<meta property="og:video:duration" content="{{ module.tv_info.duration }}s" />
+			{% endunless %}
+			{% unless module.tv_info.date == "" %}
+				<meta property="og:music:release_date" content="{{ module.tv_info.date|format_date('YYYY-MM-DD') }}" />
+			{% endunless %}
+			{% unless module.tv_info.tags is null %}
+				<meta property="og:video:tag" content="{% for single_tag in module.tv_info.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
+			{% endunless %}
+		{% elif module.og_type == "video.episode" %}
+			{% for actor in module.movie_episode.actors %}
+				{% unless actor.firstname == "" %}
+					<meta property="og:video:actor:firstname" content="{{ actor.firstname }}" />
+				{% endunless %}
+				{% unless actor.lastname == "" %}
+					<meta property="og:video:actor:lastname" content="{{ actor.lastname }}" />
+				{% endunless %}
+				{% unless actor.role == "" %}
+					<meta property="og:video:actor:role" content="{{ actor.role }}" />
+				{% endunless %}
+				{% unless actor.gender == "" %}
+					<meta property="og:video:actor:gender" content="{{ actor.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for director in module.movie_episode.directors %}
+				{% unless director.firstname == "" %}
+					<meta property="og:video:director:firstname" content="{{ director.firstname }}" />
+				{% endunless %}
+				{% unless director.lastname == "" %}
+					<meta property="og:video:director:lastname" content="{{ director.lastname }}" />
+				{% endunless %}	
+				{% unless director.gender == "" %}
+					<meta property="og:video:director:gender" content="{{ director.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% for writer in module.movie_episode.writers %}
+				{% unless writer.firstname == "" %}
+					<meta property="og:video:writer:firstname" content="{{ writer.firstname }}" />
+				{% endunless %}
+				{% unless writer.lastname == "" %}
+					<meta property="og:video:writer:lastname" content="{{ writer.lastname }}" />
+				{% endunless %}	
+				{% unless writer.gender == "" %}
+					<meta property="og:video:writer:gender" content="{{ writer.gender }}" />
+				{% endunless %}
+			{% endfor %}
+			{% unless module.movie_episode.duration == "" %}
+				<meta property="og:video:duration" content="{{ module.movie_episode.duration }}s" />
+			{% endunless %}
+			{% unless module.movie_episode.date == "" %}
+				<meta property="og:video:release_date" content="{{ module.movie_episode.date|format_date('YYYY-MM-DD') }}" />
+			{% endunless %}
+			{% unless module.movie_episode.tags is null %}
+				<meta property="og:video:tag" content="{% for single_tag in module.movie_episodes.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
+			{% endunless %}
+			{% unless module.movie_episode.video_series == "" %}
+				<meta property="og:video:series" content="{{ module.movie_episode.series }}" />
+			{% endunless %}
+		{% elif module.og_type == "article" %}
+			<meta property="og:article:published_time" content="{{ content.publish_date|format_date('YYYY-MM-DD') }}" />
+			<meta property="og:article:updated_time" content="{{ content.updated|format_date('YYYY-MM-DD') }}" />
+			{% unless module.article.author.firstname == "" %}
+				<meta property="og:article:author:firstname" content="{{ module.article.author.firstname }}" />
+			{% endunless %}
+			{% unless module.article.author.lastname == "" %}
+				<meta property="og:article:author:lastname" content="{{ module.article.author.lastname }}" />
+			{% endunless %}
+			{% unless module.article.author.gender == "" %}
+				<meta property="og:article:author:gender" content="{{ module.article.author.gender }}" />
+			{% endunless %}
+			{% unless module.article.section == "" %}
+				<meta property="og:article:section" content="{{ module.article.section }}" />
+			{% endunless %}
+			{% unless module.article.section.tags is null %}
+				<meta property="og:article:tag" content="{% for single_tag in module.article.section.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
+			{% endunless %}
+		{% elif module.og_type == "book" %}
+			{% unless module.book.author.firstname == "" %}
+				<meta property="og:book:author:firstname" content="{{ module.book.author.firstname }}" />
+			{% endunless %}
+			{% unless module.book.author.lastname == "" %}
+				<meta property="og:book:author:lastname" content="{{ module.book.author.lastname }}" />
+			{% endunless %}
+			{% unless module.book.author.gender == "" %}
+				<meta property="og:book:author:gender" content="{{ module.book.author.gender }}" />
+			{% endunless %}
+			{% unless module.book.author.isbn == "" %}
+				<meta property="og:book:isbn" content="{{ module.book.author.isbn }}" />
+			{% endunless %}
+			{% unless module.book.section.tags is null %}
+				<meta property="og:book:tag" content="{% for single_tag in module.book.section.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
+			{% endunless %}
+		{% endif %} 
+	{% endunless %}
+	{# end og type overwrite #} 
+{% end_require_head %}
+{# end Open Graph Properties #}

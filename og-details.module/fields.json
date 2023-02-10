@@ -1,0 +1,1923 @@
+[
+	{
+		"allow_new_line": false,
+		"default": "",
+		"display_width": null,
+		"help_text": "This field corresponds to the html-title tag. If left empty it will be populated with it.",
+		"id": "og_title",
+		"inline_help_text": "",
+		"label": "OG Title",
+		"locked": false,
+		"name": "og_title",
+		"placeholder": "",
+		"required": true,
+		"show_emoji_picker": false,
+		"type": "text",
+		"validation_regex": ""
+	},
+	{
+		"name": "og_type",
+		"label": "OG type",
+		"required": true,
+		"locked": false,
+		"display": "select",
+		"inline_help_text": "",
+		"help_text": "Select the type of the content of the page",
+		"id": "og_type",
+		"choices": [
+			["website", "Website"],
+			["article", "Article"],
+			["book", "Book"],
+			["music.song", "Music / Song"],
+			["music.album", "Music / Album"],
+			["music.playlist", "Music / Playlist"],
+			["music.radio_station", "Music / Radio station"],
+			["video.movie", "Video / Movie"],
+			["video.episode", "Video / Episode"],
+			["video.tv_show", "Video / TV show"],
+			["video.other", "Video / other"]
+		],
+		"type": "choice",
+		"placeholder": "",
+		"default": "website"
+	},
+	{
+		"allow_new_line": false,
+		"default": "This is a placeholder for og description text",
+		"display_width": null,
+		"help_text": "",
+		"id": "og_description",
+		"inline_help_text": "Limited to 200 characters due to Open Graph limitations. If left empty it will use the meta-description",
+		"label": "OG Description",
+		"locked": false,
+		"name": "og_description",
+		"placeholder": "",
+		"required": false,
+		"show_emoji_picker": false,
+		"type": "text",
+		"validation_regex": ""
+	},
+	{
+		"allow_new_line": false,
+		"display_width": null,
+		"id": "de36d86c-7d4e-13ca-9c3a-fd66e1b61403",
+		"label": "OG Site name",
+		"locked": false,
+		"name": "og_site_name",
+		"required": false,
+		"show_emoji_picker": false,
+		"type": "text",
+		"help_text": "If left empty it will be populated with your company name which is set in the settings.",
+		"validation_regex": "",
+		"default": ""
+	},
+	{
+		"type": "choice",
+		"id": "982103b6-adfd-d72c-6362-bc49ec7b0822",
+		"display": "radio",
+		"choices": [
+			["featured_image", "Page Featured Image"],
+			["custom", "Custom"]
+		],
+		"label": "OG Image source",
+		"name": "og_image_source",
+		"default": "featured_image",
+		"help_text": "Choose if you want to use the featured image of the page or a custom one for "
+	},
+	{
+		"default": {
+			"src": ""
+		},
+		"display_width": null,
+		"help_text": "For best result, use an image with 1.91:1 side-ratio. E.g. 1200px x 630px",
+		"id": "og_image",
+		"inline_help_text": "",
+		"label": "OG image",
+		"locked": false,
+		"name": "og_image",
+		"required": false,
+		"resizable": false,
+		"responsive": false,
+		"show_loading": false,
+		"type": "image",
+		"visibility": {
+			"controlling_field": "982103b6-adfd-d72c-6362-bc49ec7b0822",
+			"operator": "EQUAL",
+			"controlling_value_regex": "custom"
+		}
+	},
+	{
+		"allow_new_line": false,
+		"display_width": null,
+		"id": "e2acfe9d-77a2-6f4f-f260-df109f34de9c",
+		"label": "OG url",
+		"locked": false,
+		"name": "og_url",
+		"required": false,
+		"show_emoji_picker": false,
+		"type": "text",
+		"validation_regex": "",
+		"default": ""
+	},
+	{
+		"name": "song_info",
+		"label": "Song informations",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "duration",
+				"label": "Duration",
+				"required": false,
+				"locked": false,
+				"display": "text",
+				"step": 1,
+				"suffix": "s",
+				"type": "number",
+				"min": null,
+				"max": null,
+				"inline_help_text": "Song duration in <strong>seconds</strong>",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "album",
+				"label": "Album",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "disc",
+				"label": "Disc",
+				"required": false,
+				"locked": false,
+				"display": "slider",
+				"step": 1,
+				"type": "number",
+				"min": 0,
+				"max": 15,
+				"inline_help_text": "",
+				"help_text": "",
+				"default": 0
+			},
+			{
+				"name": "track_number",
+				"label": "Track number",
+				"required": false,
+				"locked": false,
+				"display": "text",
+				"step": 1,
+				"type": "number",
+				"min": 1,
+				"max": null,
+				"inline_help_text": "",
+				"help_text": "",
+				"default": 1
+			},
+			{
+				"name": "musician",
+				"label": "Musician",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "username",
+						"label": "Username/Artist",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["band", "Band"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {}
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "music.song",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "album_info",
+		"label": "Album Informations",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "song",
+				"label": "Song",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "disc",
+				"label": "Disc",
+				"required": false,
+				"locked": false,
+				"display": "slider",
+				"step": 1,
+				"type": "number",
+				"min": 0,
+				"max": 15,
+				"inline_help_text": "",
+				"help_text": "",
+				"default": 0
+			},
+			{
+				"name": "track_number",
+				"label": "Track number",
+				"required": false,
+				"locked": false,
+				"display": "text",
+				"step": 1,
+				"type": "number",
+				"min": 1,
+				"max": null,
+				"inline_help_text": "",
+				"help_text": "",
+				"default": 1
+			},
+			{
+				"name": "musician",
+				"label": "Musician",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "username",
+						"label": "Username/Artist",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["band", "Band"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {}
+			},
+			{
+				"name": "date",
+				"label": "Release date",
+				"required": false,
+				"locked": false,
+				"step": 1,
+				"type": "date",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "music.playlist",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "playlist_info",
+		"label": "Playlist informations",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "song",
+				"label": "Song",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "disc",
+				"label": "Disc",
+				"required": false,
+				"locked": false,
+				"display": "slider",
+				"step": 1,
+				"type": "number",
+				"min": 0,
+				"max": 15,
+				"inline_help_text": "",
+				"help_text": "",
+				"default": 0
+			},
+			{
+				"name": "track_number",
+				"label": "Track number",
+				"required": false,
+				"locked": false,
+				"display": "text",
+				"step": 1,
+				"type": "number",
+				"min": 1,
+				"max": null,
+				"inline_help_text": "",
+				"help_text": "",
+				"default": 1
+			},
+			{
+				"name": "creator",
+				"label": "Creator",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "username",
+						"label": "Username/Artist",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["band", "Band"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {}
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "music.playlist",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "radio_station",
+		"label": "Radio station",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "creator",
+				"label": "Creator",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "station_name",
+						"label": "Radio station name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["band", "Band"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {}
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "music.radio_station",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "movie_info",
+		"label": "Movie information",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "actors",
+				"label": "Actors",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "role",
+						"label": "Role",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "directors",
+				"label": "Directors",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "writers",
+				"label": "Writers",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "duration",
+				"label": "Duration",
+				"required": false,
+				"locked": false,
+				"display": "text",
+				"step": 1,
+				"suffix": "s",
+				"type": "number",
+				"min": null,
+				"max": null,
+				"inline_help_text": "Movie duration in <strong>seconds</strong>",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "date",
+				"label": "Release date",
+				"required": false,
+				"locked": false,
+				"step": 1,
+				"type": "date",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "tags",
+				"label": "Tags",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "Tag words associated with this movie.",
+				"inline_help_text": "",
+				"help_text": "",
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"default": null
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "video.movie",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "tv_info",
+		"label": "Tv show information",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "actors",
+				"label": "Actors",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "role",
+						"label": "Role",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "directors",
+				"label": "Directors",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "writers",
+				"label": "Writers",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "duration",
+				"label": "Duration",
+				"required": false,
+				"locked": false,
+				"display": "text",
+				"step": 1,
+				"suffix": "s",
+				"type": "number",
+				"min": null,
+				"max": null,
+				"inline_help_text": "Movie duration in <strong>seconds</strong>",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "date",
+				"label": "Release date",
+				"required": false,
+				"locked": false,
+				"step": 1,
+				"type": "date",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "tags",
+				"label": "Tags",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "Tag words associated with this movie.",
+				"inline_help_text": "",
+				"help_text": "",
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"default": null
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "video.tv_show",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "video_other",
+		"label": "Other video type",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "actors",
+				"label": "Actors",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "role",
+						"label": "Role",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "directors",
+				"label": "Directors",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "writers",
+				"label": "Writers",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "duration",
+				"label": "Duration",
+				"required": false,
+				"locked": false,
+				"display": "text",
+				"step": 1,
+				"suffix": "s",
+				"type": "number",
+				"min": null,
+				"max": null,
+				"inline_help_text": "Movie duration in <strong>seconds</strong>",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "date",
+				"label": "Release date",
+				"required": false,
+				"locked": false,
+				"step": 1,
+				"type": "date",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "tags",
+				"label": "Tags",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "Tag words associated with this movie.",
+				"inline_help_text": "",
+				"help_text": "",
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"default": null
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "video.other",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "movie_episode",
+		"label": "Movie episode information",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "actors",
+				"label": "Actors",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "role",
+						"label": "Role",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "directors",
+				"label": "Directors",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "writers",
+				"label": "Writers",
+				"required": false,
+				"locked": false,
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": []
+			},
+			{
+				"name": "duration",
+				"label": "Duration",
+				"required": false,
+				"locked": false,
+				"display": "text",
+				"step": 1,
+				"suffix": "s",
+				"type": "number",
+				"min": null,
+				"max": null,
+				"inline_help_text": "Movie duration in <strong>seconds</strong>",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "date",
+				"label": "Release date",
+				"required": false,
+				"locked": false,
+				"step": 1,
+				"type": "date",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "tags",
+				"label": "Tags",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "Tag words associated with this movie.",
+				"inline_help_text": "",
+				"help_text": "",
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"default": null
+			},
+			{
+				"name": "series",
+				"label": "Series",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "",
+				"inline_help_text": "",
+				"help_text": "Which series this episode belongs to",
+				"default": null
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "video.episode",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "article",
+		"label": "Article",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "author",
+				"label": "Author",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				]
+			},
+			{
+				"name": "section",
+				"label": "Section",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "",
+				"inline_help_text": "",
+				"help_text": "A high-level section name. E.g. Technology",
+				"default": null
+			},
+			{
+				"name": "tags",
+				"label": "Tags",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "Tag words associated with this article.",
+				"inline_help_text": "",
+				"help_text": "",
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"default": null
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "article",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	},
+	{
+		"name": "book",
+		"label": "Book",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "author",
+				"label": "Author",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "firstname",
+						"label": "First name",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "lastname",
+						"label": "Lastname",
+						"required": false,
+						"locked": false,
+						"validation_regex": "",
+						"allow_new_line": false,
+						"show_emoji_picker": false,
+						"type": "text",
+						"placeholder": "",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": null
+					},
+					{
+						"name": "gender",
+						"label": "Gender",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["male", "Male"],
+							["femaile", "Female"],
+							["other", "Other"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": null
+					}
+				]
+			},
+			{
+				"name": "isbn",
+				"label": "ISBN",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "date",
+				"label": "Release date",
+				"required": false,
+				"locked": false,
+				"step": 1,
+				"type": "date",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": null
+			},
+			{
+				"name": "tags",
+				"label": "Tags",
+				"required": false,
+				"locked": false,
+				"validation_regex": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "Tag words associated with this book.",
+				"inline_help_text": "",
+				"help_text": "",
+				"occurrence": {
+					"min": 1,
+					"max": null,
+					"sorting_label_field": null,
+					"default": null
+				},
+				"default": null
+			}
+		],
+		"type": "group",
+		"visibility": {
+			"controlling_field": "og_type",
+			"controlling_value_regex": "book",
+			"operator": "EQUAL"
+		},
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {}
+	}
+]
