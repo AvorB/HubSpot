@@ -56,8 +56,3 @@ Select what's the page about. You have all available Open graph options with all
     <li>The OG image width and height are only used if you select the custom image option in "OG image source"</li>
     <li>If you haven't already set a company name, navigate to <br>Settings&nbsp;>&nbsp;Marketing&nbsp;>&nbsp;Email&nbsp;>&nbsp;Configuration&nbsp;>&nbsp;Footer</li>
 </ol>
-
-
-
-
-

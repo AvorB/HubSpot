@@ -184,8 +184,8 @@
 			{% unless module.movie_info.tags is null %}
 				<meta property="og:video:tag" content="{% for single_tag in module.movie_info.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
 			{% endunless %}
-		{% elif module.og_type == "video.tv_show"%}
-			{% for actor in module.tv_info.actors %}
+		{% elif module.og_type == "video.episode"%}
+			{% for actor in module.movie_episode.actors %}
 				{% unless actor.firstname == "" %}
 					<meta property="og:video:actor:firstname" content="{{ actor.firstname }}" />
 				{% endunless %}
@@ -199,7 +199,7 @@
 					<meta property="og:video:actor:gender" content="{{ actor.gender }}" />
 				{% endunless %}
 			{% endfor %}
-			{% for director in module.tv_info.directors %}
+			{% for director in module.movie_episode.directors %}
 				{% unless director.firstname == "" %}
 					<meta property="og:video:director:firstname" content="{{ director.firstname }}" />
 				{% endunless %}
@@ -210,7 +210,7 @@
 					<meta property="og:video:director:gender" content="{{ director.gender }}" />
 				{% endunless %}
 			{% endfor %}
-			{% for writer in module.tv_info.writers %}
+			{% for writer in module.movie_episode.writers %}
 				{% unless writer.firstname == "" %}
 					<meta property="og:video:writer:firstname" content="{{ writer.firstname }}" />
 				{% endunless %}
@@ -221,14 +221,14 @@
 					<meta property="og:video:writer:gender" content="{{ writer.gender }}" />
 				{% endunless %}
 			{% endfor %}
-			{% unless module.tv_info.duration == "" %}
-				<meta property="og:video:duration" content="{{ module.tv_info.duration }}s" />
+			{% unless module.movie_episode.duration == "" %}
+				<meta property="og:video:duration" content="{{ module.movie_episode.duration }}s" />
 			{% endunless %}
-			{% unless module.tv_info.date == "" %}
-				<meta property="og:music:release_date" content="{{ module.tv_info.date|format_date('YYYY-MM-DD') }}" />
+			{% unless module.movie_episode.date == "" %}
+				<meta property="og:music:release_date" content="{{ module.movie_episode.date|format_date('YYYY-MM-DD') }}" />
 			{% endunless %}
-			{% unless module.tv_info.tags is null %}
-				<meta property="og:video:tag" content="{% for single_tag in module.tv_info.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
+			{% unless module.movie_episode.tags is null %}
+				<meta property="og:video:tag" content="{% for single_tag in module.movie_episode.tags %}{{ single_tag }}{% unless loop.last %}, {% endunless %}{% endfor %}" />
 			{% endunless %}
 		{% elif module.og_type == "video.other" %}
 			{% for actor in module.video_other.actors %}
